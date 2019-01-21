@@ -16,6 +16,7 @@ This repository contains codes for the paper "T-cell Classification".
 |[transfer_learning.ipynb](./transfer_learning.ipynb)|Notebook for retraining layers of pre-trained Inception v3|
 
 # License
+The software is available under the MIT license.
 
 # Acknowledgement
 
