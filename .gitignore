@@ -2,3 +2,4 @@
 .Rhistory
 __pycache__
 *.swp
+/images/sample_images/
