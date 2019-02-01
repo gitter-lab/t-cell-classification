@@ -2,7 +2,7 @@
 
 This repository contains codes for the paper "T-cell Classification".
 
-# Description
+## Description
 
 |Directory/File|Description|
 |:---:|:---:|
@@ -15,9 +15,9 @@ This repository contains codes for the paper "T-cell Classification".
 |[simple_cnn_lenet.ipynb](./simple_cnn_lenet.ipynb)|Notebook for end-to-end training CNN LeNet|
 |[transfer_learning.ipynb](./transfer_learning.ipynb)|Notebook for retraining layers of pre-trained Inception v3|
 
-# License
+## License
 The software is available under the MIT license.
 
-# Acknowledgement
+## Acknowledgement
 
-# Citation
+## Citation
