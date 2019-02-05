@@ -1,12 +1,14 @@
 name: cellimage
 channels:
+  - conda-forge
   - defaults
 dependencies:
   - appnope=0.1.0=py36hf537a9a_0
   - backcall=0.1.0=py36_0
-  - ca-certificates=2018.12.5=0
-  - certifi=2018.11.29=py36_0
+  - ca-certificates=2018.11.29=ha4d7672_0
+  - certifi=2018.11.29=py36_1000
   - entrypoints=0.2.3=py36_2
+  - icu=58.2=h0a44026_1000
   - ipykernel=5.1.0=py36h39e3cac_0
   - ipython=7.2.0=py36h39e3cac_0
   - ipython_genutils=0.2.0=py36h241746c_0
@@ -14,21 +16,30 @@ dependencies:
   - jinja2=2.10=py36_0
   - jsonschema=2.6.0=py36hb385e00_0
   - jupyter_client=5.2.4=py36_0
+  - jupyter_contrib_core=0.3.3=py_2
+  - jupyter_contrib_nbextensions=0.5.1=py36_0
   - jupyter_core=4.4.0=py36_0
+  - jupyter_highlight_selected_word=0.2.0=py36_1000
+  - jupyter_latex_envs=1.4.4=py36_1000
+  - jupyter_nbextensions_configurator=0.4.1=py36_0
   - libcxx=4.0.1=h579ed51_0
   - libcxxabi=4.0.1=hebd6815_0
   - libedit=3.1.20170329=hb402a30_2
   - libffi=3.2.1=h475c297_4
+  - libiconv=1.15=h1de35cc_1004
   - libsodium=1.0.16=h3efe00b_0
+  - libxml2=2.9.8=hf14e9c8_1005
+  - libxslt=1.1.32=h33a18ac_1002
+  - lxml=4.3.0=py36h7166777_1000
   - markupsafe=1.1.0=py36h1de35cc_0
   - mistune=0.8.4=py36h1de35cc_0
   - nb_conda=2.2.1=py36_0
   - nb_conda_kernels=2.2.0=py36_0
-  - nbconvert=5.3.1=py36_0
+  - nbconvert=5.3.1=py_1
   - nbformat=4.4.0=py36h827af21_0
   - ncurses=6.1=h0a44026_0
-  - notebook=5.7.4=py36_0
-  - openssl=1.1.1a=h1de35cc_0
+  - notebook=5.7.4=py36_1000
+  - openssl=1.1.1a=h1de35cc_1000
   - pandoc=2.2.3.2=0
   - pandocfilters=1.4.2=py36_1
   - parso=0.3.1=py36_0
@@ -54,12 +65,13 @@ dependencies:
   - webencodings=0.5.1=py36_1
   - wheel=0.31.1=py36_0
   - xz=5.2.4=h1de35cc_4
+  - yaml=0.1.7=h1de35cc_1001
   - zeromq=4.2.5=h0a44026_1
   - zlib=1.2.11=hf3cbc9b_2
   - pip:
     - absl-py==0.3.0
     - astor==0.7.1
-    - bleach==3.0.2
+    - bleach==3.1.0
     - cloudpickle==0.6.1
     - cycler==0.10.0
     - dask==1.0.0
@@ -97,4 +109,5 @@ dependencies:
     - toolz==0.9.0
     - umap==0.1.1
     - werkzeug==0.14.1
+prefix: /Users/JayWong/miniconda3/envs/cellimage
 
