@@ -6,8 +6,9 @@ This repository contains codes for the paper "T-cell Classification".
 
 |Directory/File|Description|
 |:---:|:---:|
-|[data](./data)|Directory containing a sub-sample of T-cell images and processed data|
+|[images](./images)|Directory containing T-cell images|
 |[plots](./plots)|Directory containing supplementary figures|
+|[resource](./resource)|Directory containing supplementary training files|
 |[image_processing.ipynb](./image_processing.ipynb)|Notebook for image cropping, filtering and mask measurement|
 |[frequency_classifier.ipynb](./frequency_classifier.ipynb)|Notebook for a trivial frequency classifier|
 |[logistic_regression.ipynb](.logistic_regression.ipynb)|Notebook for fitting three logistic regression models with different feature vectors|
