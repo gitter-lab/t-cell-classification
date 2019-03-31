@@ -1,4 +1,4 @@
-name: cellimage
+name: t-cell-image
 channels:
   - r
   - conda-forge
@@ -209,5 +209,3 @@ dependencies:
     - toolz==0.9.0
     - umap==0.1.1
     - werkzeug==0.14.1
-prefix: /Users/JayWong/miniconda3/envs/cellimage
-
