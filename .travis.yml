@@ -12,4 +12,6 @@ before_install:
   - conda list
 
 script:
-  - python -c "import keras"
+  - python -c "from keras.applications.inception_v3 import InceptionV3"
+  - python -c "import cv2"
+  - python -c "import rpy2.robjects as robjects"
