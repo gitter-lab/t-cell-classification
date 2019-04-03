@@ -1,11 +1,13 @@
 # T-cell Classification
 
-This repository contains codes for the paper "T-cell Classification".
+> This repository contains codes for the paper "T-cell Classification"
+
+[![Build Status](https://travis-ci.com/gitter-lab/t-cell-classification.svg?token=bScb8q1oDXBU8vqjJxhE&branch=master)](https://travis-ci.com/gitter-lab/t-cell-classification)
 
 ## Description
 
 |Directory/File|Description|
-|:---:|:---:|
+|:---|:---|
 |[images](./images)|Directory containing T-cell images|
 |[plots](./plots)|Directory containing supplementary figures|
 |[resource](./resource)|Directory containing supplementary training files|
