@@ -9,10 +9,10 @@ dependencies:
   - backcall=0.1.0=py36_0
   - bwidget=1.9.11=1
   - bzip2=1.0.6=h1de35cc_5
-  - ca-certificates=2018.11.29=ha4d7672_0
+  - ca-certificates=2019.1.23=0
   - cairo=1.14.12=hc4e6be7_4
   - cctools=895=h7512d6f_0
-  - certifi=2018.11.29=py36_1000
+  - certifi=2019.3.9=py36_0
   - clang=4.0.1=h662ec87_0
   - clang_osx-64=4.0.1=h1ce6c1d_11
   - clangxx=4.0.1=hc9b4283_0
@@ -73,7 +73,7 @@ dependencies:
   - nbformat=4.4.0=py36h827af21_0
   - ncurses=6.1=h0a44026_0
   - notebook=5.7.4=py36_1000
-  - openssl=1.1.1a=h1de35cc_1000
+  - openssl=1.1.1b=h1de35cc_1
   - pandoc=2.2.3.2=0
   - pandocfilters=1.4.2=py36_1
   - pango=1.42.4=h060686c_0
@@ -149,6 +149,7 @@ dependencies:
   - r-viridislite=0.3.0=r351hf348343_0
   - r-withr=2.1.2=r351hf348343_0
   - readline=7.0=hc1231fa_4
+  - rpy2=2.9.4=py36r351h1d22016_0
   - send2trash=1.5.0=py36_0
   - setuptools=39.2.0=py36_0
   - sqlite=3.26.0=ha441bb4_0
@@ -170,7 +171,7 @@ dependencies:
   - pip:
     - absl-py==0.3.0
     - astor==0.7.1
-    - bleach==1.5.0
+    - bleach==3.1.0
     - cloudpickle==0.6.1
     - cycler==0.10.0
     - dask==1.0.0
@@ -184,20 +185,21 @@ dependencies:
     - keras-preprocessing==1.0.1
     - keras-vis==0.4.1
     - kiwisolver==1.0.1
+    - llvmlite==0.28.0
     - markdown==2.6.11
     - matplotlib==3.0.2
     - networkx==2.2
-    - numpy==1.15.0
+    - numba==0.43.1
+    - numpy==1.16.2
     - opencv-python==4.0.0.21
-    - pandas==0.24.0
+    - pandas==0.24.1
     - pillow==5.3.0
-    - pip==19.0.1
+    - pip==19.0.3
     - protobuf==3.6.0
     - pyparsing==2.3.0
     - pywavelets==1.0.1
     - pyyaml==3.13
-    - rpy2==2.9.5
-    - scikit-image==0.14.1
+    - scikit-image==0.14.2
     - scikit-learn==0.19.2
     - scipy==1.1.0
     - seaborn==0.9.0
@@ -207,7 +209,7 @@ dependencies:
     - tensorflow==1.8.0
     - termcolor==1.1.0
     - toolz==0.9.0
-    - umap==0.1.1
+    - umap-learn==0.3.8
     - werkzeug==0.14.1
 prefix: /Users/JayWong/miniconda3/envs/cellimage
 
