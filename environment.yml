@@ -5,7 +5,8 @@ channels:
   - defaults
 dependencies:
   - ipython=7.2.0
-  - jupyter_client=5.2.4
+  - jupyter=1.0.0
+  - simplegeneric=0.8.1
   - pandoc=2.2.3.2
   - pandocfilters=1.4.2
   - python=3.6.8
@@ -13,9 +14,11 @@ dependencies:
   - r-ggplot2=3.0.0
   - libgfortran=3
   - rpy2=2.9.4
+  - tzlocal=1.5.1
   - pip:
     - tensorflow==1.8.0
     - keras==2.2.0
+    - keras-vis==0.4.1
     - matplotlib==3.0.2
     - numpy==1.15.0
     - scikit-image==0.14.1

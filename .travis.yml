@@ -1,10 +1,30 @@
-language: python
+# We install python and packages by ourselves
+language: minimal 
 
 notifications:
   email: false
 
+os:
+  - linux
+  - osx
+
+# Test notebooks in parallel
+env:
+  - NOTEBOOK=frequency_classifier.ipynb
+  - NOTEBOOK=logistic_regression.ipynb
+  - NOTEBOOK=simple_neural_network.ipynb
+  - NOTEBOOK=simple_cnn_lenet.ipynb
+
 before_install:
-  - wget https://repo.continuum.io/miniconda/Miniconda3-4.5.12-Linux-x86_64.sh -O miniconda.sh
+  # Install miniconda based on the OS
+  - |
+    if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then
+      wget https://repo.continuum.io/miniconda/Miniconda3-4.5.12-Linux-x86_64.sh -O miniconda.sh
+    fi
+  - |
+    if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then
+      wget https://repo.continuum.io/miniconda/Miniconda2-4.5.12-MacOSX-x86_64.sh -O miniconda.sh
+    fi
   - bash miniconda.sh -b -p $HOME/anaconda
   - export PATH="$HOME/anaconda/bin:$PATH"
   - conda env create -f environment.yml
@@ -12,6 +32,6 @@ before_install:
   - conda list
 
 script:
-  - python -c "from keras.applications.inception_v3 import InceptionV3"
-  - python -c "import cv2"
-  - python -c "import rpy2.robjects as robjects"
+  # Need to run image_processing.ipynb to set up training images
+  - jupyter-nbconvert --to notebook --inplace --execute image_processing.ipynb --ExecutePreprocessor.timeout=1200
+  - travis_wait 30 jupyter-nbconvert --to notebook --inplace --execute $NOTEBOOK --ExecutePreprocessor.timeout=600
