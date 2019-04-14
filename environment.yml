@@ -6,7 +6,7 @@ channels:
 dependencies:
   - ipython=7.2.0
   - jupyter=1.0.0
-  - mro-base=3.5.1
+  - mro-base=3.5
   - simplegeneric=0.8.1
   - pandoc=2.2.3.2
   - pandocfilters=1.4.2
