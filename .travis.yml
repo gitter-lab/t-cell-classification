@@ -7,6 +7,7 @@ notifications:
 os:
   - linux
   - osx
+  - windows
 
 # Test notebooks in parallel
 env:
@@ -23,10 +24,17 @@ before_install:
     fi
   - |
     if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then
-      wget https://repo.continuum.io/miniconda/Miniconda2-4.5.12-MacOSX-x86_64.sh -O miniconda.sh
+      wget https://repo.continuum.io/miniconda/Miniconda3-4.5.12-MacOSX-x86_64.sh -O miniconda.sh
     fi
-  - bash miniconda.sh -b -p $HOME/anaconda
-  - export PATH="$HOME/anaconda/bin:$PATH"
+  - |
+    if [[ "$TRAVIS_OS_NAME" == "windows" ]]; then
+      choco install openssl.light;
+      choco install miniconda3 --params="'/AddToPath:1 /D:`cygpath --windows /c/tools/miniconda3/`'";
+      export PATH="/c/tools/miniconda3/:/c/tools/miniconda3/Scripts:$PATH";
+    else
+      bash miniconda.sh -b -p $HOME/anaconda
+      export PATH="$HOME/anaconda/bin:$PATH"
+    fi
   - conda env create -f environment.yml
   - source activate t-cell-image
   - conda list
