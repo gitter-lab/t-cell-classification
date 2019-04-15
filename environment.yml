@@ -3,10 +3,11 @@ channels:
   - r
   - conda-forge
   - defaults
+  - rdonnellyr
 dependencies:
   - ipython=7.2.0
   - jupyter=1.0.0
-  - mro-base=3.5
+  - mro-base=3.5.1
   - simplegeneric=0.8.1
   - pandoc=2.2.3.2
   - pandocfilters=1.4.2
