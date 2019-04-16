@@ -3,6 +3,10 @@
 # Some comments are taken from https://github.com/Anaconda-Platform/anaconda-project/blob/master/appveyor.yml
 build: false
 
+# Do not build feature branch with open Pull Requests
+# Set this option because the tests are slow and run in serial
+skip_branch_with_pr: true
+
 environment:
   # All available Miniconda versions https://www.appveyor.com/docs/windows-images-software/#miniconda
   MINICONDA: C:\\Miniconda36-x64
