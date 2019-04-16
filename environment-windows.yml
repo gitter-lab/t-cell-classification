@@ -13,7 +13,7 @@ dependencies:
   - r-base=3.5.1
   - r-ggplot2=3.0.0
   - r-ggpubr=0.2
-  - rpy2=2.9.4
+  - r::rpy2=2.9.4
   - tzlocal=1.5.1
   - pip:
     - tensorflow==1.8.0
