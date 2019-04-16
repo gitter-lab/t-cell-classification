@@ -31,7 +31,7 @@ install:
   - conda env create -f environment-windows.yml
   - activate t-cell-image
   - conda list
-  - Rscript -e "install.packages('ggpubr', version = '0.2')"
+  - Rscript -e "install.packages('ggpubr')"
 
 test_script:
   - jupyter-nbconvert --to notebook --inplace --execute image_processing.ipynb --ExecutePreprocessor.timeout=1200
