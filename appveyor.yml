@@ -9,9 +9,9 @@ environment:
   # Test notebooks in parallel
   matrix:
     - NOTEBOOK: frequency_classifier.ipynb
-    - NOTEBOOK=logistic_regression.ipynb
-    - NOTEBOOK=simple_neural_network.ipynb
-    - NOTEBOOK=simple_cnn_lenet.ipynb
+    - NOTEBOOK: logistic_regression.ipynb
+    - NOTEBOOK: simple_neural_network.ipynb
+    - NOTEBOOK: simple_cnn_lenet.ipynb
 
 init:
   - "ECHO Miniconda version: %MINICONDA%"
