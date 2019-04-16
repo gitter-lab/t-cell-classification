@@ -12,6 +12,7 @@ dependencies:
   - pandocfilters=1.4.2
   - python=3.6.8
   - r-ggplot2=3.0.0
+  - r-ggpubr=0.2
   - rpy2=2.9.4
   - tzlocal=1.5.1
   - pip:
