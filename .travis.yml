@@ -1,5 +1,5 @@
 # We install python and packages by ourselves
-language: minimal 
+language: minimal
 
 notifications:
   email: false
@@ -14,6 +14,7 @@ env:
   - NOTEBOOK=logistic_regression.ipynb
   - NOTEBOOK=simple_neural_network.ipynb
   - NOTEBOOK=simple_cnn_lenet.ipynb
+  - NOTEBOOK=transfer_learning.ipynb
 
 before_install:
   # Install miniconda based on the OS
@@ -33,5 +34,5 @@ before_install:
 
 script:
   # Need to run image_processing.ipynb to set up training images
-  - jupyter-nbconvert --to notebook --inplace --execute image_processing.ipynb --ExecutePreprocessor.timeout=1200
-  - travis_wait 30 jupyter-nbconvert --to notebook --inplace --execute $NOTEBOOK --ExecutePreprocessor.timeout=600
+  - jupyter-nbconvert --to notebook --inplace --execute image_processing.ipynb --ExecutePreprocessor.timeout=-1
+  - travis_wait 50 jupyter-nbconvert --to notebook --inplace --execute $NOTEBOOK --ExecutePreprocessor.timeout=-1
