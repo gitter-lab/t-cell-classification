@@ -13,7 +13,7 @@ dependencies:
   - r-base=3.5.1
   - r-ggplot2=3.0.0
   - conda-forge::r-ggpubr=0.2
-  - conda-forge::rpy2=2.9.4
+  - conda-forge::rpy2=2.9
   - tzlocal=1.5.1
   - pip:
     - tensorflow==1.8.0
