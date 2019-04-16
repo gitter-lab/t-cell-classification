@@ -13,7 +13,6 @@ dependencies:
   - r-base=3.5.1
   - r-ggplot2=3.0.0
   - r-ggpubr=0.2
-  - r::rpy2=2.9.4
   - tzlocal=1.5.1
   - pip:
     - tensorflow==1.8.0
@@ -31,3 +30,4 @@ dependencies:
     - pillow==5.3.0
     - h5py==2.8.0
     - pandas==0.24.0
+    - rpy2==2.9.4
