@@ -34,5 +34,5 @@ install:
   - Rscript -e "install.packages('ggpubr')"
 
 test_script:
-  - jupyter-nbconvert --to notebook --inplace --execute image_processing.ipynb --ExecutePreprocessor.timeout=1200
-  - jupyter-nbconvert --to notebook --inplace --execute %NOTEBOOK% --ExecutePreprocessor.timeout=600
+  - jupyter-nbconvert --to notebook --inplace --execute image_processing.ipynb --ExecutePreprocessor.timeout=-1
+  - jupyter-nbconvert --to notebook --inplace --execute %NOTEBOOK% --ExecutePreprocessor.timeout=-1
