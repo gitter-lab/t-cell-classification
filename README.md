@@ -1,5 +1,5 @@
 # T-cell classification
-[![Build Status](https://travis-ci.com/gitter-lab/t-cell-classification.svg?branch=master)](https://travis-ci.com/gitter-lab/t-cell-classification)
+[![Build Status](https://travis-ci.com/gitter-lab/t-cell-classification.svg?token=bScb8q1oDXBU8vqjJxhE&branch=master)](https://travis-ci.com/gitter-lab/t-cell-classification) [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.2640835.svg)](https://doi.org/10.5281/zenodo.2640835)
 
 This repository contains code for a work-in-progress manuscript on T-cell classification.
 
