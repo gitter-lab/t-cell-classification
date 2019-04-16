@@ -5,8 +5,8 @@ notifications:
   email: false
 
 os:
-    - linux
-    - osx
+  - linux
+  - osx
 
 # Test notebooks in parallel
 env:
@@ -21,21 +21,13 @@ before_install:
   - |
     if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then
       wget https://repo.continuum.io/miniconda/Miniconda3-4.5.12-Linux-x86_64.sh -O miniconda.sh
-      bash miniconda.sh -b -p $HOME/anaconda
-      export PATH="$HOME/anaconda/bin:$PATH"
     fi
   - |
     if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then
       wget https://repo.continuum.io/miniconda/Miniconda2-4.5.12-MacOSX-x86_64.sh -O miniconda.sh
-      bash miniconda.sh -b -p $HOME/anaconda
-      export PATH="$HOME/anaconda/bin:$PATH"
     fi
-  - |
-    if [[ "$TRAVIS_OS_NAME" == "windows" ]]; then
-      choco install openssl.light;
-      choco install miniconda3 --params="'/AddToPath:1 /D:`cygpath --windows /c/tools/miniconda3/`'";
-      export PATH="/c/tools/miniconda3/:/c/tools/miniconda3/Scripts:$PATH";
-    fi
+  - bash miniconda.sh -b -p $HOME/anaconda
+  - export PATH="$HOME/anaconda/bin:$PATH"
   - conda env create -f environment.yml
   - source activate t-cell-image
   - conda list
