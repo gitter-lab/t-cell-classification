@@ -6,14 +6,13 @@ channels:
 dependencies:
   - ipython=7.2.0
   - jupyter=1.0.0
+  - mro-base=3.5.1
   - simplegeneric=0.8.1
   - pandoc=2.2.3.2
   - pandocfilters=1.4.2
   - python=3.6.8
-  - r-base=3.5.1
   - r-ggplot2=3.0.0
-  - conda-forge::r-ggpubr=0.2
-  - conda-forge::rpy2=2.9
+  - rpy2=2.9.4
   - tzlocal=1.5.1
   - pip:
     - tensorflow==1.8.0
