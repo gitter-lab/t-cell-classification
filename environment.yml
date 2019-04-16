@@ -7,8 +7,6 @@ dependencies:
   - ipython=7.2.0
   - jupyter=1.0.0
   - simplegeneric=0.8.1
-  - pandoc=2.2.3.2
-  - pandocfilters=1.4.2
   - python=3.6.8
   - r-base=3.5.1
   - r-ggplot2=3.0.0
@@ -18,13 +16,14 @@ dependencies:
   - pip:
     - tensorflow==1.8.0
     - keras==2.2.0
-    - keras-vis==0.4.1
+    # Need a newer version of keras-vis
+    # https://github.com/raghakot/keras-vis/issues/127
+    - git+https://github.com/raghakot/keras-vis.git@137f268b77f40a12d373db17da74dcc9fe759680
     - matplotlib==3.0.2
     - numpy==1.15.0
     - scikit-image==0.14.1
     - scikit-learn==0.19.2
     - scipy==1.1.0
-    - seaborn==0.9.0
     - tensorboard==1.8.0
     - umap-learn==0.3.8
     - opencv-python==4.0.0.21
