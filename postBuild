@@ -1,0 +1,6 @@
+#!/bin/bash
+
+# Run the image_processing notebook to generate training data in the Docker
+# image, so Binder can run other notebooks independently
+
+jupyter-nbconvert --to notebook --inplace --execute image_processing.ipynb --ExecutePreprocessor.timeout=-1
