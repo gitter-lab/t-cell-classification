@@ -1,0 +1,34 @@
+# Based on http://tjelvarolsson.com/blog/how-to-continuously-test-your-python-code-on-windows-using-appveyor/
+# and https://github.com/Anaconda-Platform/anaconda-project/blob/master/appveyor.yml
+# Some comments are taken from https://github.com/Anaconda-Platform/anaconda-project/blob/master/appveyor.yml
+build: false
+
+environment:
+  # All available Miniconda versions https://www.appveyor.com/docs/windows-images-software/#miniconda
+  MINICONDA: C:\\Miniconda36-x64
+  # Test notebooks in parallel
+  matrix:
+    - NOTEBOOK: frequency_classifier.ipynb
+    - NOTEBOOK=logistic_regression.ipynb
+    - NOTEBOOK=simple_neural_network.ipynb
+    - NOTEBOOK=simple_cnn_lenet.ipynb
+
+init:
+  - "ECHO Miniconda version: %MINICONDA%"
+
+install:
+  # conda 4.5.11 seems to expect that this directory exists already
+  - mkdir C:\Users\appveyor\.conda
+  - call %MINICONDA%\Scripts\activate.bat
+  # The safety checks are simply intended to ensure that there is enough disk space
+  # and the user has the necessary permissions to make environment changes. In a CI
+  # environment these are not necessary and slow things down noticeably on Windows.
+  - conda config --set always_yes yes --set changeps1 no --set auto_update_conda no --set safety_checks disabled
+  - conda info -a
+  - conda env create -f environment-windows.yml
+  - activate t-cell-image
+  - conda list
+
+test_script:
+  - jupyter-nbconvert --to notebook --inplace --execute image_processing.ipynb --ExecutePreprocessor.timeout=1200
+  - jupyter-nbconvert --to notebook --inplace --execute %NOTEBOOK% --ExecutePreprocessor.timeout=600
