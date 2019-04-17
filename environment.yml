@@ -10,6 +10,7 @@ dependencies:
   - python=3.6.8
   - r-base=3.5.1
   - r-ggplot2=3.0.0
+  - r-ggpubr=0.2.0
   - libgfortran=3
   - rpy2=2.9.4
   - tzlocal=1.5.1
