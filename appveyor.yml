@@ -16,6 +16,7 @@ environment:
     - NOTEBOOK: logistic_regression.ipynb
     - NOTEBOOK: simple_neural_network.ipynb
     - NOTEBOOK: simple_cnn_lenet.ipynb
+    - NOTEBOOK: transfer_learning.ipynb
 
 init:
   - "ECHO Miniconda version: %MINICONDA%"
