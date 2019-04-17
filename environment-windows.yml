@@ -17,7 +17,9 @@ dependencies:
   - pip:
     - tensorflow==1.8.0
     - keras==2.2.0
-    - keras-vis==0.4.1
+    # Need a newer version of keras-vis
+    # https://github.com/raghakot/keras-vis/issues/127
+    - git+https://github.com/raghakot/keras-vis.git@137f268b77f40a12d373db17da74dcc9fe759680
     - matplotlib==3.0.2
     - numpy==1.15.0
     - scikit-image==0.14.1
