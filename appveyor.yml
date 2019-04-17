@@ -1,0 +1,41 @@
+# Based on http://tjelvarolsson.com/blog/how-to-continuously-test-your-python-code-on-windows-using-appveyor/
+# and https://github.com/Anaconda-Platform/anaconda-project/blob/master/appveyor.yml
+# Some comments are taken from https://github.com/Anaconda-Platform/anaconda-project/blob/master/appveyor.yml
+build: false
+
+# Do not build feature branch with open Pull Requests
+# Set this option because the tests are slow and run in serial
+skip_branch_with_pr: true
+
+environment:
+  # All available Miniconda versions https://www.appveyor.com/docs/windows-images-software/#miniconda
+  MINICONDA: C:\\Miniconda36-x64
+  # Test notebooks in parallel
+  matrix:
+    - NOTEBOOK: frequency_classifier.ipynb
+    - NOTEBOOK: logistic_regression.ipynb
+    - NOTEBOOK: simple_neural_network.ipynb
+    - NOTEBOOK: simple_cnn_lenet.ipynb
+    - NOTEBOOK: transfer_learning.ipynb
+
+init:
+  - "ECHO Miniconda version: %MINICONDA%"
+
+install:
+  - call %MINICONDA%\Scripts\activate.bat
+  # Install openssl to solve conda HTTP 000 connection issue
+  - conda install openssl -y
+  - conda update conda -y
+  # The safety checks are simply intended to ensure that there is enough disk space
+  # and the user has the necessary permissions to make environment changes. In a CI
+  # environment these are not necessary and slow things down noticeably on Windows.
+  - conda config --set always_yes yes --set changeps1 no --set auto_update_conda no --set safety_checks disabled
+  - conda info -a
+  - conda env create -f environment-windows.yml
+  - activate t-cell-image
+  - conda list
+  - Rscript -e "install.packages('ggpubr')"
+
+test_script:
+  - jupyter-nbconvert --to notebook --inplace --execute image_processing.ipynb --ExecutePreprocessor.timeout=-1
+  - jupyter-nbconvert --to notebook --inplace --execute %NOTEBOOK% --ExecutePreprocessor.timeout=-1
