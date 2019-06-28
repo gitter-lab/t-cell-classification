@@ -4,4 +4,4 @@ __pycache__
 *.swp
 /images/sample_images/
 /temp/
-resource/saved_weights_donor_1.h5
+resource/saved_weights_fine_tuning_donor_1.h5
