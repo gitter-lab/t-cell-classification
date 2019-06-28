@@ -180,7 +180,7 @@ dependencies:
     - grpcio==1.13.0
     - h5py==2.8.0
     - html5lib==0.9999999
-    - keras==2.2.0
+    - keras==2.1.6
     - keras-applications==1.0.2
     - keras-preprocessing==1.0.1
     - keras-vis==0.4.1
