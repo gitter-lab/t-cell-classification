@@ -4,7 +4,7 @@ There are two types of example images in this directory.
 
 |Type|File/Directory|Description|
 |:---:|:---:|:---:|
-|Example images| [`example`](./example)| A few randomly picked images to demonstrate microscopy images|
+|Example images| [`examples`](./examples)| A few randomly picked images to demonstrate microscopy images|
 |Subsampled images| [`sample_images.zip`](./sample_images.zip)| A 10% stratified subsample from the full dataset. These images are used to run the notebooks in this repository|
 
 ## Cell Image Activity Count
