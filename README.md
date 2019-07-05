@@ -27,5 +27,8 @@ This repository contains code for a work-in-progress manuscript on T-cell classi
 - Three `conda` environment files are provided. `environment.yml` and `environment-windows.yml` include main dependencies with major versions for macOS/Linux and Windows respectively; `environment-complete.yml` provides a complete list of all packages and versions.
 - You can use `conda env create -f {environment.yml|environment-windows.yml|environment-complete.yml}` to install dependencies. 
 
+## License
+The software is available under the BSD 3-Clause Clear License.
+
 ## Citation
 Pre-print by Zijie J. Wang, Alex J. Walsh, Melissa C. Skala, and Anthony Gitter coming soon.
