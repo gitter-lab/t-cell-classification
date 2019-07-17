@@ -4,7 +4,7 @@
 [![badge](./plots/binder_badge.svg)](https://mybinder.org/v2/gh/gitter-lab/t-cell-classification/master)
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.2640835.svg)](https://doi.org/10.5281/zenodo.2640835)
 
-This repository contains code for a work-in-progress manuscript on T-cell classification.
+This repository contains code for the manuscript **Classifying T cell activity in autofluorescence intensity images with convolutional neural networks**.
 
 ## Description
 
@@ -18,7 +18,7 @@ This repository contains code for a work-in-progress manuscript on T-cell classi
 |[logistic_regression.ipynb](./logistic_regression.ipynb)|<a href="https://nbviewer.jupyter.org/github/gitter-lab/t-cell-classification/blob/master/logistic_regression.ipynb"><img src="./plots/nbviewer_logo.png" height="16" align="bottom"></a> <a href="https://mybinder.org/v2/gh/gitter-lab/t-cell-classification/master?filepath=logistic_regression.ipynb"><img src="./plots/binder_logo.png" height="16" align="bottom"></a>|Notebook for fitting three logistic regression models with different feature vectors|
 |[simple_neural_network.ipynb](./simple_neural_network.ipynb)|<a href="https://nbviewer.jupyter.org/github/gitter-lab/t-cell-classification/blob/master/simple_neural_network.ipynb"><img src="./plots/nbviewer_logo.png" height="16" align="bottom"></a> <a href="https://mybinder.org/v2/gh/gitter-lab/t-cell-classification/master?filepath=simple_neural_network.ipynb"><img src="./plots/binder_logo.png" height="16" align="bottom"></a>|Notebook for training a one-layer fully connected neural network|
 |[simple_cnn_lenet.ipynb](./simple_cnn_lenet.ipynb)|<a href="https://nbviewer.jupyter.org/github/gitter-lab/t-cell-classification/blob/master/simple_cnn_lenet.ipynb"><img src="./plots/nbviewer_logo.png" height="16" align="bottom"></a> <a href="https://mybinder.org/v2/gh/gitter-lab/t-cell-classification/master?filepath=simple_cnn_lenet.ipynb"><img src="./plots/binder_logo.png" height="16" align="bottom"></a>|Notebook for end-to-end training CNN LeNet|
-|[transfer_learning.ipynb](./transfer_learning.ipynb)|<a href="https://nbviewer.jupyter.org/github/gitter-lab/t-cell-classification/blob/master/transfer_learning.ipynb"><img src="./plots/nbviewer_logo.png" height="16" align="bottom"></a> <a href="https://mybinder.org/v2/gh/gitter-lab/t-cell-classification/master?filepath=transfer_learning.ipynb"><img src="./plots/binder_logo.png" height="16" align="bottom"></a>|Notebook for retraining layers of pre-trained Inception v3|
+|[transfer_learning.ipynb](./transfer_learning.ipynb)|<a href="https://nbviewer.jupyter.org/github/gitter-lab/t-cell-classification/blob/master/transfer_learning.ipynb"><img src="./plots/nbviewer_logo.png" height="16" align="bottom"></a> <a href="https://mybinder.org/v2/gh/gitter-lab/t-cell-classification/master?filepath=transfer_learning.ipynb"><img src="./plots/binder_logo.png" height="16" align="bottom"></a>|Notebook for fine-tuning layers of pre-trained Inception v3|
 
 <br/>
 
