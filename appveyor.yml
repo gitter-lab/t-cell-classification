@@ -24,9 +24,8 @@ init:
 install:
   - call %MINICONDA%\Scripts\activate.bat
   # Install openssl to solve conda HTTP 000 connection issue
-  - conda install openssl -y
+  - conda install conda=4.6.12 openssl -y
 #  - conda update conda -y
-  - conda install conda=4.6.12 -y
   # The safety checks are simply intended to ensure that there is enough disk space
   # and the user has the necessary permissions to make environment changes. In a CI
   # environment these are not necessary and slow things down noticeably on Windows.
