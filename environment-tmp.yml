@@ -1,5 +1,0 @@
-name: t-cell-image
-channels:
-  - defaults
-dependencies:
-  - python=3.6.8
