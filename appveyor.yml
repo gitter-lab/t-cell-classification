@@ -12,10 +12,10 @@ environment:
   MINICONDA: C:\\Miniconda36-x64
   # Test notebooks in parallel
   matrix:
-  # - NOTEBOOK: frequency_classifier.ipynb
-  # - NOTEBOOK: logistic_regression.ipynb
-  # - NOTEBOOK: simple_neural_network.ipynb
-  # - NOTEBOOK: simple_cnn_lenet.ipynb
+    - NOTEBOOK: frequency_classifier.ipynb
+    - NOTEBOOK: logistic_regression.ipynb
+    - NOTEBOOK: simple_neural_network.ipynb
+    - NOTEBOOK: simple_cnn_lenet.ipynb
     - NOTEBOOK: transfer_learning.ipynb
 
 init:
