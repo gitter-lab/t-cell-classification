@@ -24,7 +24,7 @@ init:
 install:
   - call %MINICONDA%\Scripts\activate.bat
   # Install openssl to solve conda HTTP 000 connection issue
-  - conda install conda=4.6.12 openssl -y
+  - conda install conda=4.6.14 openssl -y
   # Do not use the latest conda in case it is buggy, use the pinned version above
   #- conda update conda -y
   # The safety checks are simply intended to ensure that there is enough disk space
@@ -33,6 +33,8 @@ install:
   - conda config --set always_yes yes --set changeps1 no --set auto_update_conda no --set safety_checks disabled
   - conda init
   - conda info -a
+  - conda config --show-sources
+  - conda list --show-channel-urls
   - conda env create -f environment-tmp.yml
   - conda activate t-cell-image
   - conda list
