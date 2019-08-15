@@ -32,8 +32,9 @@ install:
   - conda config --set always_yes yes --set changeps1 no --set auto_update_conda no --set safety_checks disabled
   - conda init
   - conda info -a
-  - conda env create -f environment-windows.yml
+  - conda env create -f environment-tmp.yml
   - conda activate t-cell-image
+  - SET
   - conda list
   - Rscript -e "install.packages('ggpubr')"
 
