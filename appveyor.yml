@@ -24,12 +24,14 @@ init:
 install:
   - call %MINICONDA%\Scripts\activate.bat
   # Install openssl to solve conda HTTP 000 connection issue
-  - conda install openssl -y
-  - conda update conda -y
+  - conda install conda=4.6.12 openssl -y
+  # Do not use the latest conda in case it is buggy, use the pinned version above
+  # - conda update conda -y
   # The safety checks are simply intended to ensure that there is enough disk space
   # and the user has the necessary permissions to make environment changes. In a CI
   # environment these are not necessary and slow things down noticeably on Windows.
   - conda config --set always_yes yes --set changeps1 no --set auto_update_conda no --set safety_checks disabled
+  - conda init
   - conda info -a
   - conda env create -f environment-windows.yml
   - conda activate t-cell-image
