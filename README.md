@@ -4,7 +4,12 @@
 [![badge](./plots/binder_badge.svg)](https://mybinder.org/v2/gh/gitter-lab/t-cell-classification/master)
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.2640835.svg)](https://doi.org/10.5281/zenodo.2640835)
 
-This repository contains code for the manuscript **Classifying T cell activity in autofluorescence intensity images with convolutional neural networks**.
+## Citation
+This repository contains code and data for the manuscript:
+
+[Classifying T cell activity in autofluorescence intensity images with convolutional neural networks](https://doi.org/10.1101/737346).
+Zijie J Wang, Alex J Walsh, Melissa C Skala, Anthony Gitter.
+*bioRxiv* 2019. doi:10.1101/737346
 
 ## Description
 
@@ -29,6 +34,3 @@ This repository contains code for the manuscript **Classifying T cell activity i
 
 ## License
 The software is available under the BSD 3-Clause Clear License.
-
-## Citation
-Pre-print by Zijie J. Wang, Alex J. Walsh, Melissa C. Skala, and Anthony Gitter coming soon.
