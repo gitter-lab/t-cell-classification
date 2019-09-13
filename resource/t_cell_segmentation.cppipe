@@ -1,0 +1,364 @@
+CellProfiler Pipeline: http://www.cellprofiler.org
+Version:3
+DateRevision:20160503183100
+GitHash:ac0529e
+ModuleCount:19
+HasImagePlaneDetails:False
+
+Images:[module_num:1|svn_version:\'Unknown\'|variable_revision_number:2|show_window:False|notes:\x5B\'To begin creating your project, use the Images module to compile a list of files and/or folders that you want to analyze. You can also specify a set of rules to include only the desired files in your selected folders.\', \'---\', \'Settings converted from legacy pipeline.\'\x5D|batch_state:array(\x5B\x5D, dtype=uint8)|enabled:True|wants_pause:False]
+    :
+    Filter images?:No filtering
+    Select the rule criteria:and (extension does isimage) (directory doesnot containregexp "\x5B\\\\\\\\\\\\\\\\/\x5D\\\\\\\\.")
+
+Metadata:[module_num:2|svn_version:\'Unknown\'|variable_revision_number:4|show_window:False|notes:\x5B\'The Metadata module optionally allows you to extract information describing your images (i.e, metadata) which will be stored along with your measurements. This information can be contained in the file name and/or location, or in an external file.\', \'---\', \'Settings converted from legacy pipeline.\'\x5D|batch_state:array(\x5B\x5D, dtype=uint8)|enabled:True|wants_pause:False]
+    Extract metadata?:No
+    Metadata data type:Text
+    Metadata types:{}
+    Extraction method count:1
+    Metadata extraction method:Extract from file/folder names
+    Metadata source:File name
+    Regular expression:^(?P<Plate>.*)_(?P<Well>\x5BA-P\x5D\x5B0-9\x5D{2})_s(?P<Site>\x5B0-9\x5D)_w(?P<ChannelNumber>\x5B0-9\x5D)
+    Regular expression:(?P<Date>\x5B0-9\x5D{4}_\x5B0-9\x5D{2}_\x5B0-9\x5D{2})$
+    Extract metadata from:All images
+    Select the filtering criteria:and (file does contain "")
+    Metadata file location:
+    Match file and image metadata:\x5B\x5D
+    Use case insensitive matching?:No
+
+NamesAndTypes:[module_num:3|svn_version:\'Unknown\'|variable_revision_number:6|show_window:False|notes:\x5B\'The NamesAndTypes module allows you to assign a meaningful name to each image by which other modules will refer to it.\', \'---\', \'Settings converted from legacy pipeline.\', \'Please change any color images from "Load as Grayscale image" to "Load as Color image"\', \'Please change any color images from "Load as Grayscale image" to "Load as Color image"\', \'Please change any color images from "Load as Grayscale image" to "Load as Color image"\'\x5D|batch_state:array(\x5B\x5D, dtype=uint8)|enabled:True|wants_pause:False]
+    Assign a name to:Images matching rules
+    Select the image type:Grayscale image
+    Name to assign these images:DNA
+    Match metadata:\x5B\x5D
+    Image set matching method:Order
+    Set intensity range from:Image metadata
+    Assignments count:1
+    Single images count:0
+    Maximum intensity:255.0
+    Select the rule criteria:and (file does contain "photons.tiff")
+    Name to assign these images:NADHPhotons
+    Name to assign these objects:Cell
+    Select the image type:Grayscale image
+    Set intensity range from:Image metadata
+    Retain outlines of loaded objects?:No
+    Name the outline image:LoadedOutlines
+    Maximum intensity:255.0
+
+Groups:[module_num:4|svn_version:\'Unknown\'|variable_revision_number:2|show_window:False|notes:\x5B\'The Groups module optionally allows you to split your list of images into image subsets (groups) which will be processed independently of each other. Examples of groupings include screening batches, microtiter plates, time-lapse movies, etc.\', \'---\', \'Settings converted from legacy pipeline.\'\x5D|batch_state:array(\x5B\x5D, dtype=uint8)|enabled:True|wants_pause:False]
+    Do you want to group your images?:No
+    grouping metadata count:1
+    Metadata category:None
+
+RescaleIntensity:[module_num:5|svn_version:\'Unknown\'|variable_revision_number:2|show_window:False|notes:\x5B\x5D|batch_state:array(\x5B\x5D, dtype=uint8)|enabled:True|wants_pause:False]
+    Select the input image:NADHPhotons
+    Name the output image:NADHRescaled
+    Rescaling method:Divide by the image\'s maximum
+    Method to calculate the minimum intensity:Custom
+    Method to calculate the maximum intensity:Custom
+    Lower intensity limit for the input image:0
+    Upper intensity limit for the input image:1
+    Intensity range for the input image:0,1
+    Intensity range for the output image:0,1
+    Method to rescale pixels below the lower limit:Mask pixels
+    Custom value for pixels below lower limit:0
+    Method to rescale pixels above the upper limit:Mask pixels
+    Custom value for pixels above upper limit:1
+    Select image to match in maximum intensity:None
+    Divisor value:1
+    Divisor measurement:None
+
+Smooth:[module_num:6|svn_version:\'Unknown\'|variable_revision_number:2|show_window:False|notes:\x5B\x5D|batch_state:array(\x5B\x5D, dtype=uint8)|enabled:True|wants_pause:False]
+    Select the input image:NADHRescaled
+    Name the output image:NADHSmooth
+    Select smoothing method:Smooth Keeping Edges
+    Calculate artifact diameter automatically?:No
+    Typical artifact diameter:20
+    Edge intensity difference:.4
+    Clip intensities to 0 and 1?:No
+
+EnhanceEdges:[module_num:7|svn_version:\'Unknown\'|variable_revision_number:2|show_window:False|notes:\x5B\x5D|batch_state:array(\x5B\x5D, dtype=uint8)|enabled:True|wants_pause:False]
+    Select the input image:NADHRescaled
+    Name the output image:NADHEdges
+    Automatically calculate the threshold?:Yes
+    Absolute threshold:0.5
+    Threshold adjustment factor:4
+    Select an edge-finding method:Sobel
+    Select edge direction to enhance:All
+    Calculate Gaussian\'s sigma automatically?:Yes
+    Gaussian\'s sigma value:5.0
+    Calculate value for low threshold automatically?:Yes
+    Low threshold value:0.5
+
+ApplyThreshold:[module_num:8|svn_version:\'Unknown\'|variable_revision_number:7|show_window:False|notes:\x5B\x5D|batch_state:array(\x5B\x5D, dtype=uint8)|enabled:True|wants_pause:False]
+    Select the input image:NADHEdges
+    Name the output image:EdgThres
+    Select the output image type:Binary (black and white)
+    Set pixels below or above the threshold to zero?:Above threshold
+    Subtract the threshold value from the remaining pixel intensities?:No
+    Number of pixels by which to expand the thresholding around those excluded bright pixels:0.0
+    Threshold setting version:2
+    Threshold strategy:Manual
+    Thresholding method:Otsu
+    Select the smoothing method for thresholding:No smoothing
+    Threshold smoothing scale:1.0
+    Threshold correction factor:1.0
+    Lower and upper bounds on threshold:0.0,1.0
+    Approximate fraction of image covered by objects?:0.01
+    Manual threshold:.05
+    Select the measurement to threshold with:None
+    Select binary image:None
+    Masking objects:None
+    Two-class or three-class thresholding?:Three classes
+    Minimize the weighted variance or the entropy?:Weighted variance
+    Assign pixels in the middle intensity class to the foreground or the background?:Foreground
+    Method to calculate adaptive window size:Image size
+    Size of adaptive window:10
+    Use default parameters?:Default
+    Lower outlier fraction:0.05
+    Upper outlier fraction:0.05
+    Averaging method:Mean
+    Variance method:Standard deviation
+    # of deviations:2.0
+
+ImageMath:[module_num:9|svn_version:\'Unknown\'|variable_revision_number:4|show_window:False|notes:\x5B\x5D|batch_state:array(\x5B\x5D, dtype=uint8)|enabled:True|wants_pause:False]
+    Operation:Invert
+    Raise the power of the result by:1.0
+    Multiply the result by:1.0
+    Add to result:0.0
+    Set values less than 0 equal to 0?:No
+    Set values greater than 1 equal to 1?:No
+    Ignore the image masks?:No
+    Name the output image:InvertedEdge
+    Image or measurement?:Image
+    Select the first image:EdgThres
+    Multiply the first image by:1.0
+    Measurement:
+    Image or measurement?:Image
+    Select the second image:
+    Multiply the second image by:1.0
+    Measurement:
+
+ImageMath:[module_num:10|svn_version:\'Unknown\'|variable_revision_number:4|show_window:False|notes:\x5B\x5D|batch_state:array(\x5B\x5D, dtype=uint8)|enabled:True|wants_pause:False]
+    Operation:Multiply
+    Raise the power of the result by:1.0
+    Multiply the result by:1.0
+    Add to result:0.0
+    Set values less than 0 equal to 0?:Yes
+    Set values greater than 1 equal to 1?:Yes
+    Ignore the image masks?:No
+    Name the output image:NADHRescaleEdge
+    Image or measurement?:Image
+    Select the first image:NADHRescaled
+    Multiply the first image by:1.0
+    Measurement:
+    Image or measurement?:Image
+    Select the second image:InvertedEdge
+    Multiply the second image by:1.0
+    Measurement:
+
+IdentifyPrimaryObjects:[module_num:11|svn_version:\'Unknown\'|variable_revision_number:10|show_window:False|notes:\x5B\x5D|batch_state:array(\x5B\x5D, dtype=uint8)|enabled:True|wants_pause:False]
+    Select the input image:NADHRescaleEdge
+    Name the primary objects to be identified:Nuclei
+    Typical diameter of objects, in pixel units (Min,Max):5,50
+    Discard objects outside the diameter range?:Yes
+    Try to merge too small objects with nearby larger objects?:No
+    Discard objects touching the border of the image?:Yes
+    Method to distinguish clumped objects:Shape
+    Method to draw dividing lines between clumped objects:Shape
+    Size of smoothing filter:10
+    Suppress local maxima that are closer than this minimum allowed distance:10
+    Speed up by using lower-resolution image to find local maxima?:No
+    Name the outline image:None
+    Fill holes in identified objects?:After both thresholding and declumping
+    Automatically calculate size of smoothing filter for declumping?:Yes
+    Automatically calculate minimum allowed distance between local maxima?:No
+    Retain outlines of the identified objects?:No
+    Automatically calculate the threshold using the Otsu method?:Yes
+    Enter Laplacian of Gaussian threshold:.5
+    Automatically calculate the size of objects for the Laplacian of Gaussian filter?:Yes
+    Enter LoG filter diameter:5
+    Handling of objects if excessive number of objects identified:Continue
+    Maximum number of objects:500
+    Threshold setting version:1
+    Threshold strategy:Manual
+    Thresholding method:Otsu
+    Select the smoothing method for thresholding:Automatic
+    Threshold smoothing scale:1
+    Threshold correction factor:1
+    Lower and upper bounds on threshold:0,1
+    Approximate fraction of image covered by objects?:0.01
+    Manual threshold:.08
+    Select the measurement to threshold with:Threshold_OrigThreshold_NADHThresh
+    Select binary image:NADHThresh
+    Masking objects:From image
+    Two-class or three-class thresholding?:Two classes
+    Minimize the weighted variance or the entropy?:Weighted variance
+    Assign pixels in the middle intensity class to the foreground or the background?:Foreground
+    Method to calculate adaptive window size:Image size
+    Size of adaptive window:10
+    Use default parameters?:Default
+    Lower outlier fraction:0.05
+    Upper outlier fraction:0.05
+    Averaging method:Mean
+    Variance method:Standard deviation
+    # of deviations:2.0
+
+MeasureObjectSizeShape:[module_num:12|svn_version:\'Unknown\'|variable_revision_number:1|show_window:False|notes:\x5B\x5D|batch_state:array(\x5B\x5D, dtype=uint8)|enabled:True|wants_pause:False]
+    Select objects to measure:Nuclei
+    Calculate the Zernike features?:No
+
+FilterObjects:[module_num:13|svn_version:\'Unknown\'|variable_revision_number:7|show_window:False|notes:\x5B\x5D|batch_state:array(\x5B\x5D, dtype=uint8)|enabled:True|wants_pause:False]
+    Name the output objects:FilteredNuclei
+    Select the object to filter:Nuclei
+    Select the filtering mode:Measurements
+    Select the filtering method:Limits
+    Select the objects that contain the filtered objects:None
+    Retain outlines of the identified objects?:Yes
+    Name the outline image:None
+    Rules file location:Elsewhere...\x7CC\x3A\\\\Users\\\\Amani
+    Rules file name:rules.txt
+    Class number:1
+    Measurement count:2
+    Additional object count:0
+    Assign overlapping child to:Both parents
+    Select the measurement to filter by:AreaShape_Compactness
+    Filter using a minimum measurement value?:No
+    Minimum value:0
+    Filter using a maximum measurement value?:Yes
+    Maximum value:2.75
+    Select the measurement to filter by:AreaShape_FormFactor
+    Filter using a minimum measurement value?:Yes
+    Minimum value:.15
+    Filter using a maximum measurement value?:Yes
+    Maximum value:2.75
+
+IdentifySecondaryObjects:[module_num:14|svn_version:\'Unknown\'|variable_revision_number:9|show_window:False|notes:\x5B\x5D|batch_state:array(\x5B\x5D, dtype=uint8)|enabled:True|wants_pause:False]
+    Select the input objects:Nuclei
+    Name the objects to be identified:Cells
+    Select the method to identify the secondary objects:Propagation
+    Select the input image:NADHRescaled
+    Number of pixels by which to expand the primary objects:4
+    Regularization factor:0
+    Name the outline image:Do not use
+    Retain outlines of the identified secondary objects?:No
+    Discard secondary objects touching the border of the image?:No
+    Discard the associated primary objects?:No
+    Name the new primary objects:FilteredNuclei
+    Retain outlines of the new primary objects?:No
+    Name the new primary object outlines:FilteredNucleiOutlines
+    Fill holes in identified objects?:No
+    Threshold setting version:1
+    Threshold strategy:Adaptive
+    Thresholding method:Otsu
+    Select the smoothing method for thresholding:No smoothing
+    Threshold smoothing scale:1
+    Threshold correction factor:.9
+    Lower and upper bounds on threshold:0,1
+    Approximate fraction of image covered by objects?:0.7
+    Manual threshold:.15
+    Select the measurement to threshold with:None
+    Select binary image:NADHBinary
+    Masking objects:From image
+    Two-class or three-class thresholding?:Two classes
+    Minimize the weighted variance or the entropy?:Weighted variance
+    Assign pixels in the middle intensity class to the foreground or the background?:Foreground
+    Method to calculate adaptive window size:Image size
+    Size of adaptive window:10
+    Use default parameters?:Default
+    Lower outlier fraction:0.05
+    Upper outlier fraction:0.05
+    Averaging method:Mean
+    Variance method:Standard deviation
+    # of deviations:2.0
+
+IdentifyTertiaryObjects:[module_num:15|svn_version:\'Unknown\'|variable_revision_number:2|show_window:False|notes:\x5B\x5D|batch_state:array(\x5B\x5D, dtype=uint8)|enabled:True|wants_pause:False]
+    Select the larger identified objects:Cells
+    Select the smaller identified objects:Nuclei
+    Name the tertiary objects to be identified:Cytoplasm
+    Name the outline image:Cytoplasm
+    Retain outlines of the tertiary objects?:Yes
+    Shrink smaller object prior to subtraction?:No
+
+OverlayOutlines:[module_num:16|svn_version:\'Unknown\'|variable_revision_number:3|show_window:False|notes:\x5B\x5D|batch_state:array(\x5B\x5D, dtype=uint8)|enabled:True|wants_pause:False]
+    Display outlines on a blank image?:No
+    Select image on which to display outlines:NADHRescaled
+    Name the output image:NADHoverlay
+    Outline display mode:Color
+    Select method to determine brightness of outlines:Max of image
+    Width of outlines:1
+    Select outlines to display:Cytoplasm
+    Select outline color:cyan
+    Load outlines from an image or objects?:Image
+    Select objects to display:None
+
+SaveImages:[module_num:17|svn_version:\'Unknown\'|variable_revision_number:11|show_window:False|notes:\x5B\x5D|batch_state:array(\x5B\x5D, dtype=uint8)|enabled:True|wants_pause:False]
+    Select the type of image to save:Image
+    Select the image to save:NADHoverlay
+    Select the objects to save:None
+    Select the module display window to save:NADHoverlay
+    Select method for constructing file names:From image filename
+    Select image name for file prefix:NADHPhotons
+    Enter single file name:NADHPhotons
+    Number of digits:4
+    Append a suffix to the image file name?:Yes
+    Text to append to the image name:1
+    Saved file format:bmp
+    Output file location:Same folder as image\x7CDocuments
+    Image bit depth:8-bit integer
+    Overwrite existing files without warning?:No
+    When to save:Every cycle
+    Rescale the images? :No
+    Save as grayscale or color image?:Grayscale
+    Select colormap:gray
+    Record the file and path information to the saved image?:No
+    Create subfolders in the output folder?:No
+    Base image folder:Elsewhere...\x7CC\x3A\\\\Users\\\\Amani
+    Saved movie format:avi
+
+SaveImages:[module_num:18|svn_version:\'Unknown\'|variable_revision_number:11|show_window:False|notes:\x5B\x5D|batch_state:array(\x5B\x5D, dtype=uint8)|enabled:True|wants_pause:False]
+    Select the type of image to save:Objects
+    Select the image to save:None
+    Select the objects to save:Cytoplasm
+    Select the module display window to save:None
+    Select method for constructing file names:Sequential numbers
+    Select image name for file prefix:NADHPhotons
+    Enter single file name:Mask_image_
+    Number of digits:2
+    Append a suffix to the image file name?:No
+    Text to append to the image name:
+    Saved file format:tif
+    Output file location:Same folder as image\x7C
+    Image bit depth:8-bit integer
+    Overwrite existing files without warning?:No
+    When to save:Every cycle
+    Rescale the images? :No
+    Save as grayscale or color image?:Grayscale
+    Select colormap:gray
+    Record the file and path information to the saved image?:No
+    Create subfolders in the output folder?:No
+    Base image folder:Elsewhere...\x7C
+    Saved movie format:avi
+
+SaveImages:[module_num:19|svn_version:\'Unknown\'|variable_revision_number:11|show_window:False|notes:\x5B\x5D|batch_state:array(\x5B\x5D, dtype=uint8)|enabled:True|wants_pause:False]
+    Select the type of image to save:Objects
+    Select the image to save:None
+    Select the objects to save:Cells
+    Select the module display window to save:None
+    Select method for constructing file names:Sequential numbers
+    Select image name for file prefix:NADHPhotons
+    Enter single file name:Cell_mask_
+    Number of digits:2
+    Append a suffix to the image file name?:No
+    Text to append to the image name:
+    Saved file format:tif
+    Output file location:Same folder as image\x7C
+    Image bit depth:8-bit integer
+    Overwrite existing files without warning?:No
+    When to save:Every cycle
+    Rescale the images? :No
+    Save as grayscale or color image?:Grayscale
+    Select colormap:gray
+    Record the file and path information to the saved image?:No
+    Create subfolders in the output folder?:No
+    Base image folder:Elsewhere...\x7C
+    Saved movie format:avi
