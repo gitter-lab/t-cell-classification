@@ -3,6 +3,7 @@
 [![Build status](https://ci.appveyor.com/api/projects/status/4nn776bdps5880h6/branch/master?svg=true)](https://ci.appveyor.com/project/gitter-lab/t-cell-classification/branch/master)
 [![badge](./plots/binder_badge.svg)](https://mybinder.org/v2/gh/gitter-lab/t-cell-classification/master)
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.2640835.svg)](https://doi.org/10.5281/zenodo.2640835)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3455314.svg)](https://doi.org/10.5281/zenodo.3455314)
 
 ## Citation
 This repository contains code and data for the manuscript:
