@@ -10,6 +10,7 @@ dependencies:
   - simplegeneric=0.8.1
   - pandoc=2.2.3.2
   - pandocfilters=1.4.2
+  - pip=21.0.1
   - python=3.6.8
   - r-ggplot2=3.0.0
   - rpy2=2.9.4
