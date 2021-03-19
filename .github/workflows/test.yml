@@ -1,0 +1,26 @@
+name: Test notebooks
+on:
+- push
+- pull_request
+jobs:
+  Test:
+    name: Test notebooks
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+        #os: [ubuntu-latest, windows-latest, macos-latest]
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      - name: Install conda environment
+        uses: conda-incubator/setup-miniconda@v2
+        with:
+          activate-environment: t-cell-image
+          environment-file: environment.yml
+          auto-activate-base: false
+          miniconda-version: 'latest'
+      # Tests that the image processing notebook can execute in the conda environment
+      - name: Execute inference notebook
+        shell: bash --login {0}
+        run: jupyter-nbconvert --to notebook --inplace --execute image_processing.ipynb --ExecutePreprocessor.timeout=-1
