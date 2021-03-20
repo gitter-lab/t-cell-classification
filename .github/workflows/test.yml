@@ -8,9 +8,17 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [ubuntu-latest, windows-latest, macos-latest]
         # Test notebooks in parallel
         notebook: [frequency_classifier.ipynb, logistic_regression.ipynb, simple_neural_network.ipynb, simple_cnn_lenet.ipynb, transfer_learning.ipynb]
+        os: [ubuntu-latest, macos-latest, windows-latest]
+        # Use different conda environment for Windows
+        include:
+          - os: ubuntu-latest
+            environment: environment.yml
+          - os: macos-latest
+            environment: environment.yml
+          - os: windows-latest
+            environment: environment-windows.yml
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
@@ -18,7 +26,7 @@ jobs:
         uses: conda-incubator/setup-miniconda@v2
         with:
           activate-environment: t-cell-image
-          environment-file: environment.yml
+          environment-file: ${{ matrix.environment }}
           auto-activate-base: false
           miniconda-version: 'latest'
       - name: Display installed Python packages
