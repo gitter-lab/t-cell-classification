@@ -8,8 +8,10 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [ubuntu-latest]
+        os: [ubuntu-latest, macos-latest]
         #os: [ubuntu-latest, windows-latest, macos-latest]
+        # Test notebooks in parallel
+        notebook: [frequency_classifier.ipynb, logistic_regression.ipynb, simple_neural_network.ipynb, simple_cnn_lenet.ipynb, transfer_learning.ipynb]
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
@@ -21,6 +23,10 @@ jobs:
           auto-activate-base: false
           miniconda-version: 'latest'
       # Tests that the image processing notebook can execute in the conda environment
-      - name: Execute inference notebook
+      - name: Execute image processing notebook
         shell: bash --login {0}
         run: jupyter-nbconvert --to notebook --inplace --execute image_processing.ipynb --ExecutePreprocessor.timeout=-1
+      # Tests that the analysis notebooks can execute in the conda environment
+      - name: Execute analysis notebook
+        shell: bash --login {0}
+        run: travis_wait 50 jupyter-nbconvert --to notebook --inplace --execute ${{ matrix.notebook }} --ExecutePreprocessor.timeout=-1
