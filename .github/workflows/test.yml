@@ -8,8 +8,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [ubuntu-latest, macos-latest]
-        #os: [ubuntu-latest, windows-latest, macos-latest]
+        os: [ubuntu-latest, windows-latest, macos-latest]
         # Test notebooks in parallel
         notebook: [frequency_classifier.ipynb, logistic_regression.ipynb, simple_neural_network.ipynb, simple_cnn_lenet.ipynb, transfer_learning.ipynb]
     steps:
@@ -22,7 +21,7 @@ jobs:
           environment-file: environment.yml
           auto-activate-base: false
           miniconda-version: 'latest'
-      - name: Display conda packages
+      - name: Display installed Python packages
         shell: bash --login {0}
         run: conda list
       # Tests that the image processing notebook can execute in the conda environment
