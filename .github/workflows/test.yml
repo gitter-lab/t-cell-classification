@@ -29,4 +29,4 @@ jobs:
       # Tests that the analysis notebooks can execute in the conda environment
       - name: Execute analysis notebook
         shell: bash --login {0}
-        run: travis_wait 50 jupyter-nbconvert --to notebook --inplace --execute ${{ matrix.notebook }} --ExecutePreprocessor.timeout=-1
+        run: jupyter-nbconvert --to notebook --inplace --execute ${{ matrix.notebook }} --ExecutePreprocessor.timeout=-1
