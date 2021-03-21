@@ -1,6 +1,5 @@
 # T-cell classification
-[![Build Status](https://travis-ci.com/gitter-lab/t-cell-classification.svg?branch=master)](https://travis-ci.com/gitter-lab/t-cell-classification)
-[![Build status](https://ci.appveyor.com/api/projects/status/4nn776bdps5880h6/branch/master?svg=true)](https://ci.appveyor.com/project/gitter-lab/t-cell-classification/branch/master)
+[![Test notebooks](https://github.com/gitter-lab/t-cell-classification/actions/workflows/test.yml/badge.svg)](https://github.com/gitter-lab/t-cell-classification/actions/workflows/test.yml)
 [![badge](./plots/binder_badge.svg)](https://mybinder.org/v2/gh/gitter-lab/t-cell-classification/master)
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.2640835.svg)](https://doi.org/10.5281/zenodo.2640835)
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3455314.svg)](https://doi.org/10.5281/zenodo.3455314)
@@ -10,7 +9,7 @@ This repository contains code and data for the manuscript:
 
 [Classifying T cell activity in autofluorescence intensity images with convolutional neural networks](https://doi.org/10.1002/jbio.201960050).
 Zijie J Wang, Alex J Walsh, Melissa C Skala, Anthony Gitter.
-*Journal of Biophotonics* 2019.
+*Journal of Biophotonics*, 13:3, 2020.
 
 ## Description
 
@@ -31,7 +30,8 @@ Zijie J Wang, Alex J Walsh, Melissa C Skala, Anthony Gitter.
 - [Nbviewer <img src="./plots/nbviewer_logo.png" height="16" align="bottom">](https://nbviewer.jupyter.org)  renders these notebooks as static HTML web pages.
 - [Binder <img src="./plots/binder_logo.png" height="16" align="bottom">](https://mybinder.org) hosts an executable environment for notebooks.
 - Three `conda` environment files are provided. `environment.yml` and `environment-windows.yml` include main dependencies with major versions for macOS/Linux and Windows respectively; `environment-complete.yml` provides a complete list of all packages and versions.
-- You can use `conda env create -f {environment.yml|environment-windows.yml|environment-complete.yml}` to install dependencies. 
+- You can use `conda env create -f {environment.yml|environment-windows.yml|environment-complete.yml}` to install dependencies.
+- On Windows, the R package `ggpubr` must be installed separately after creating the conda environment with the command `Rscript -e "install.packages('ggpubr')"`.
 
 ## License
 The software is available under the BSD 3-Clause Clear License.
