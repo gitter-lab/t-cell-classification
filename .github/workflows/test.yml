@@ -1,0 +1,48 @@
+name: Test notebooks
+on:
+- push
+- pull_request
+jobs:
+  Test:
+    name: Test notebooks
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        # Test notebooks in parallel
+        notebook: [frequency_classifier.ipynb, logistic_regression.ipynb, simple_neural_network.ipynb, simple_cnn_lenet.ipynb, transfer_learning.ipynb]
+        os: [ubuntu-latest, macos-latest, windows-latest]
+        # Use different conda environment for Windows
+        include:
+          - os: ubuntu-latest
+            environment: environment.yml
+          - os: macos-latest
+            environment: environment.yml
+          - os: windows-latest
+            environment: environment-windows.yml
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      - name: Install conda environment
+        uses: conda-incubator/setup-miniconda@v2
+        with:
+          activate-environment: t-cell-image
+          environment-file: ${{ matrix.environment }}
+          auto-activate-base: false
+          miniconda-version: 'latest'
+      - name: Display installed Python packages
+        shell: bash --login {0}
+        run: conda list
+      # r-ggpubr cannot be installed through conda on Windows
+      # It causes conflicts in this environment
+      - name: Install remaining packages for Windows
+        shell: bash --login {0}
+        run: Rscript -e "install.packages('ggpubr')"
+        if: matrix.os == 'windows-latest'
+      # Tests that the image processing notebook can execute in the conda environment
+      - name: Execute image processing notebook
+        shell: bash --login {0}
+        run: jupyter-nbconvert --to notebook --inplace --execute image_processing.ipynb --ExecutePreprocessor.timeout=-1
+      # Tests that the analysis notebooks can execute in the conda environment
+      - name: Execute analysis notebook
+        shell: bash --login {0}
+        run: jupyter-nbconvert --to notebook --inplace --execute ${{ matrix.notebook }} --ExecutePreprocessor.timeout=-1

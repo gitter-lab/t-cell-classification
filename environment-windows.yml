@@ -10,6 +10,7 @@ dependencies:
   - simplegeneric=0.8.1
   - pandoc=2.2.3.2
   - pandocfilters=1.4.2
+  - pip=21.0.1
   - python=3.6.8
   - r-ggplot2=3.0.0
   - rpy2=2.9.4
@@ -21,6 +22,7 @@ dependencies:
     # https://github.com/raghakot/keras-vis/issues/127
     - git+https://github.com/raghakot/keras-vis.git@137f268b77f40a12d373db17da74dcc9fe759680
     - matplotlib==3.0.2
+    - numba==0.48.0
     - numpy==1.15.0
     - scikit-image==0.14.1
     - scikit-learn==0.19.2
